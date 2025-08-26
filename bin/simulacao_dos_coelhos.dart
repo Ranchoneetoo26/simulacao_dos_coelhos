@@ -1,26 +1,27 @@
-import 'coelhos.dart';
-import 'cresc_populacional.dart';
-
 void main() {
-  Coelhos populacao_mensal = Coelhos(
-    jovens: 0,
-    adultos: 2,
-    mes_atual: 'janeiro',
-    valor_total: 0,
-  );
-  print(populacao_mensal.print());
+  int coelho_adulto = 2;
+  int coelho_jovem = 0;
 
-  /// Data inicial do ano.
-  DateTime mesAtual = DateTime(2025, 01, 1);
+  for (var i = 1; i <= 12; i++) {
+    coelho_adulto += coelho_jovem;
+    coelho_jovem = coelho_adulto;
 
-  /// Data Final do ano.
-  DateTime mesFinal = DateTime(2025, 12, 31);
-
-  while (mesAtual.isBefore(mesFinal) || mesAtual.isAtSameMomentAs(mesFinal)) {
-    print('Mes: ${mesAtual.month}');
-
-    ///avança para o proximo dia.
-    mesAtual = mesFinal.add(Duration(days: 30));
+    print(
+      'Fim do mes: $i, populacao_total: ${coelho_adulto + coelho_jovem}, coelho adulto: $coelho_adulto, coelho_jovem: $coelho_jovem',
+    );
   }
-  ;
+
+  print('');
+
+  ///redução da cadeia de coelhos
+  for (var i = 1; i <= 12; i++) {
+    coelho_adulto = (coelho_adulto * 0.75).round();
+    coelho_jovem = (coelho_jovem * 0.75).round();
+    coelho_adulto = coelho_jovem;
+    coelho_jovem = coelho_adulto;
+
+    print(
+      'Fim do mes: $i, populacao_total: ${coelho_adulto + coelho_jovem}, coelho adulto: $coelho_adulto, coelho_jovem: $coelho_jovem',
+    );
+  }
 }
