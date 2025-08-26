@@ -11,9 +11,9 @@ void main() {
     );
   }
 
-  print('');
+  print('\n Reduzindo em 75% a População dos coelhos');
 
-  ///redução da cadeia de coelhos
+  ///redução da cadeia de coelhos 75%
   for (var i = 1; i <= 12; i++) {
     coelho_adulto = (coelho_adulto * 0.75).round();
     coelho_jovem = (coelho_jovem * 0.75).round();
