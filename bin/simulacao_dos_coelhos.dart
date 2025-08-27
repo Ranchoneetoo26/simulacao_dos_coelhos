@@ -1,27 +1,27 @@
 void main() {
-  int coelho_adulto = 2;
-  int coelho_jovem = 0;
+  int coelhoAdulto = 2;
+  int coelhoJovem = 0;
 
-  for (var i = 1; i <= 12; i++) {
-    coelho_adulto += coelho_jovem;
-    coelho_jovem = coelho_adulto;
+  /// Loop de meses com a soma dos coelhos iniciando em 2 adultos.
+  for (var mes = 1; mes <= 25; mes++) {
+    coelhoAdulto += coelhoJovem;
+    coelhoJovem = coelhoAdulto;
 
+    if (mes == 13) {
+      print('               !!!!!!Predador introduzido!!!!!!');
+    }
+
+    /// Introduzindo um predador.
+    if (mes > 12) {
+      coelhoAdulto = (coelhoAdulto * 0.25).floor();
+
+      coelhoJovem = (coelhoJovem * 0.25).floor();
+    }
     print(
-      'Fim do mes: $i, populacao_total: ${coelho_adulto + coelho_jovem}, coelho adulto: $coelho_adulto, coelho_jovem: $coelho_jovem',
+      'Fim do mes: $mes, populacao_total: ${coelhoAdulto + coelhoJovem}, coelhos adulto: $coelhoAdulto, coelhos Jovem: $coelhoJovem',
     );
   }
-
-  print('\n Reduzindo em 75% a População dos coelhos');
-
-  ///redução da cadeia de coelhos 75%
-  for (var i = 1; i <= 12; i++) {
-    coelho_adulto = (coelho_adulto * 0.75).round();
-    coelho_jovem = (coelho_jovem * 0.75).round();
-    coelho_adulto = coelho_jovem;
-    coelho_jovem = coelho_adulto;
-
-    print(
-      'Fim do mes: $i, populacao_total: ${coelho_adulto + coelho_jovem}, coelho adulto: $coelho_adulto, coelho_jovem: $coelho_jovem',
-    );
-  }
+  print(
+    '\n População final dos Coelhos: \n Coelhos adulto:$coelhoAdulto \n Coelhos jovens:$coelhoJovem',
+  );
 }
